@@ -1,0 +1,106 @@
+input.input-small {
+  width:50px;
+  font-weight: bold;
+}
+label.control-label-xssmall {
+  font-size: 12px;
+  text-transform: uppercase;
+}
+
+.tutanak-header {
+  margin-bottom: 20px;
+  margin-top:0px;
+}
+.form-header {
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+footer {
+  padding: 50px;
+}
+.row .parti {
+  padding-bottom: 5px;
+}
+
+h1 small {
+  font-size: 0.4em !important;
+}
+
+.navbar-inner {
+  color: #999;
+  font-style: italic;
+}
+
+.photo-note {
+  font-weight: 400;
+  color:#999;
+  font-style: italic;
+}
+
+label.checkbox {
+  font-weight: bold;
+}
+
+input.sandik {
+  font-size: 0.8em;
+  margin-left:5px;
+  padding-left: 10px;
+  width:100px;
+}
+
+.row .title {
+  font-size: 1.5em;
+}
+
+.span4 .titles {
+  margin-top:20px;
+}
+
+
+/* image rotate */
+
+#image {
+    transform-origin: top left; /* IE 10+, Firefox, etc. */
+    -webkit-transform-origin: top left; /* Chrome */
+    -ms-transform-origin: top left; /* IE 9 */
+}
+#image.rotate90 {
+    transform: rotate(90deg) translateY(-100%);
+    -webkit-transform: rotate(90deg) translateY(-100%);
+    -ms-transform: rotate(90deg) translateY(-100%);
+}
+#image.rotate180 {
+    transform: rotate(180deg) translate(-100%,-100%);
+    -webkit-transform: rotate(180deg) translate(-100%,-100%);
+    -ms-transform: rotate(180deg) translateX(-100%,-100%);
+}
+#image.rotate270 {
+    transform: rotate(270deg) translateX(-100%);
+    -webkit-transform: rotate(270deg) translateX(-100%);
+    -ms-transform: rotate(270deg) translateX(-100%);
+}
+
+
+/* ZOOM styles */
+.zoom {
+  display:inline-block;
+  position: relative;
+}
+
+/* magnifying glass icon */
+.zoom:after {
+  content:'';
+  display:block;
+  width:33px;
+  height:33px;
+  position:absolute;
+  top:0;
+  right:0;
+  background:url(icon.png);
+}
+
+.zoom img {
+  display: block;
+}
+
+.zoom img::selection { background-color: transparent; }

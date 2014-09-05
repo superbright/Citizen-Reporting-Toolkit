@@ -1,0 +1,280 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>WUT</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="">
+  <meta name="author" content="">
+  <script src="http://code.jquery.com/jquery-latest.js"></script>
+   <link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.6.4/leaflet.css" />
+   <link rel="stylesheet" href="/stylesheets/MarkerCluster.css" />
+  <link rel="stylesheet" href="/stylesheets/MarkerCluster.Default.css" />
+  <link rel="stylesheet" href="/stylesheets/leaflet.awesome-markers.css">
+
+  <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
+ 
+
+  <link href="//netdna.bootstrapcdn.com/bootstrap/3.0.3/css/bootstrap.min.css" rel="stylesheet">
+<!--   <link href="/stylesheets/bootstrap.css" rel="stylesheet"> -->
+  <link href="/stylesheets/foo.css" rel="stylesheet">
+  <link href="/stylesheets/L.Control.Sidebar.css" rel="stylesheet">
+  <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
+      <!--[if lt IE 9]>
+        <script src="/javascripts/html5shiv.js"></script>
+        <![endif]-->
+        <!-- Fav and touch icons -->
+        <link rel="apple-touch-icon-precomposed" sizes="144x144" href="../assets/ico/apple-touch-icon-144-precomposed.png">
+        <link rel="apple-touch-icon-precomposed" sizes="114x114" href="../assets/ico/apple-touch-icon-114-precomposed.png">
+        <link rel="apple-touch-icon-precomposed" sizes="72x72" href="../assets/ico/apple-touch-icon-72-precomposed.png">
+        <link rel="apple-touch-icon-precomposed" href="../assets/ico/apple-touch-icon-57-precomposed.png">
+        <link rel="shortcut icon" href="../assets/ico/favicon.png">
+
+      </head>
+      <body>
+       
+  <div class="container-fluid wrapper">
+
+ <div class="row-fluid"> 
+
+    <div class="col-sm-12 bootmap">
+       <div id="sidebar">
+          <div class="row"> 
+         
+       
+           <div class="col-sm-12 tweets">
+
+                </div>
+         </div>
+         </div>
+      <div id="map-block"></div>
+    </div>
+  
+  </div>
+    </div> <!-- /container -->
+
+   <script src="//netdna.bootstrapcdn.com/bootstrap/3.0.3/js/bootstrap.min.js"></script>
+   
+   <!-- scripts -->
+     <script src="http://cdn.leafletjs.com/leaflet-0.6.4/leaflet.js"></script>
+     <script src="javascripts/jquery.blockUI.js"></script>
+
+      <script src="javascripts/L.Control.Sidebar.js"></script>
+       <script src="javascripts/leaflet.markercluster.js"></script>
+       <script src="javascripts/leaflet-providers.js"></script>
+       <script src="javascripts/bouncemarker.js"></script>
+       <script src="javascripts/d3.js"></script>
+       <script src="javascripts/simple_statistics.js"></script>
+       <script src="javascripts/hexbin.js"></script>
+       <script src="javascripts/hexbinlayer.js"></script>
+       <script src="javascripts/HeatLayer.js"></script>
+
+       <script src="javascripts/leaflet.awesome-markers.min.js"></script>
+       <script src="/socket.io/socket.io.js"></script>
+          <script type="text/javascript" src="javascripts/heatmap.js"></script>
+        <script type="text/javascript" src="javascripts/heatmap-leaflet.js"></script>
+        <script src="javascripts/simpleheat.js"></script>
+
+  
+    <script>
+
+    var geodata = <%- data %>
+
+
+    console.log(geodata);
+
+    Object.size = function(obj) {
+            var size = 0, key;
+            for (key in obj) {
+                if (obj.hasOwnProperty(key)) size++;
+            }
+            return size;
+        };
+
+      // SITE WIDE, FOR NAV 
+      $(function() { 
+
+
+         var currentLayer;
+          var ilce;
+
+        var mapmargin = 00;
+        $('#map-block').css("height", ($(window).height() - mapmargin));
+        $(window).on("resize", resize);
+        resize();
+        function resize(){
+
+            if($(window).width()>=980){
+                $('#map-block').css("height", ($(window).height() - mapmargin));    
+                $('#map-block').css("margin-top",0);
+            }else{
+                $('#map-block').css("height", ($(window).height() - (mapmargin+12)));    
+                $('#map-block').css("margin-top",0);
+            }
+
+        }
+
+        $("#nav-links li").mouseenter(function(){
+          $(this).find('img').addClass('fadeInDown');
+        }).mouseleave(function(){
+          $(this).find('img').removeClass('fadeInDown');
+        });
+
+        // RETAIN ICON
+        var retailIcon = L.icon({
+            iconUrl: 'assets/imgs/maps/SirK_purveyors_retailIcon.png',
+            iconSize:     [39, 42], // size of the icon
+            shadowSize:   [50, 64], // size of the shadow
+            iconAnchor:   [22, 94], // point of the icon which will correspond to marker's location
+            popupAnchor:  [-3, -100] // point from which the popup should open relative to the iconAnchor
+        });
+ 
+        // Delcare leaflet map, and center it in new york
+        var map = L.map('map-block',{ zoomControl:false }).setView([38.1667, 38.3667], 2);
+     
+     var cscale = d3.scale.linear().domain([0,1]).range(["#69D2E7","#69D2E7"]);
+
+
+        var cloudmade = L.tileLayer('http://{s}.tile.cloudmade.com/d1e61e4d5fa54d569c84cab5915298b7/28993/256/{z}/{x}/{y}.png', {
+            attribution: 'OpenStreetMaps',
+            maxZoom: 18,
+        }).addTo(map);
+
+
+
+        // var Esri_DeLorme = L.tileLayer('http://server.arcgisonline.com/ArcGIS/rest/services/Specialty/DeLorme_World_Base_Map/MapServer/tile/{z}/{y}/{x}', {
+        //     attribution: 'Tiles &copy; Esri &mdash; Copyright: &copy;2012 DeLorme',
+        //     minZoom: 1,
+        //     maxZoom: 11
+        //   });
+
+      // var Acetate_basemap = L.tileLayer('http://a{s}.acetate.geoiq.com/tiles/acetate-base/{z}/{x}/{y}.png', {
+      //     attribution: '&copy;2012 Esri & Stamen, Data from OSM and Natural Earth',
+      //     subdomains: '0',
+      //     minZoom: 2,
+      //     maxZoom: 18
+      //   }).addTo(map);
+
+
+         var sidebar = L.control.sidebar('sidebar', {
+            closeButton: false,
+            position: 'left',
+            autoPan: true
+        });
+        map.addControl(sidebar);
+       
+        new L.Control.Zoom({ position: 'topright' }).addTo(map);
+
+        map.addEventListener('moveend', function(event) {
+           // console.log(map.getBounds());
+        })
+
+        var geojson;
+
+        var markers = L.markerClusterGroup();
+        var markersList = {};
+
+        // setTimeout(function () {
+        //    sidebar.show();
+        // }, 500);
+
+    
+        // map.on('moveend', function(e) {
+        //   console.log(map.getCenter());
+          
+        // });
+
+        var geojsonMarkerOptions = {
+          radius: 1,
+          fillColor: "#F00F00",
+          color: "#F00F00",
+          weight: 0,
+          opacity: 0.9,
+          fillOpacity: 0.3
+      };
+
+      function style(feature) {
+            return {
+                fillColor: getColor(feature.properties.density),
+                weight: 0.5,
+                opacity: 1,
+                color: '#F00F00',
+                dashArray: '1',
+                fillOpacity: 0.5
+            };
+        }
+
+        function getColor(d) {
+    return d > 1000 ? '#800026' :
+           d > 500  ? '#BD0026' :
+           d > 200  ? '#E31A1C' :
+           d > 100  ? '#FC4E2A' :
+           d > 50   ? '#FD8D3C' :
+           d > 20   ? '#FEB24C' :
+           d > 10   ? '#FED976' :
+                      '#FFEDA0';
+}
+
+ //**********************************************************************************
+        //********  ADD HEXBIN LAYER TO MAP AND DEFINE HEXBIN STYLE FUNCTION ***************
+        //**********************************************************************************
+      
+
+        function hexbinStyle(hexagons) {
+          hexagons
+            .attr("stroke", "none")
+            .attr("fill", function (d) {
+              var values = d.map(function (elem) {
+                console.log(elem[2].group);
+                return elem[2].group;
+
+              })
+              var avg = d3.mean(d, function(d) { return +d[2].group; })
+              return cscale(avg);
+            });
+        }
+
+          var heat = L.heatLayer([],
+            {
+             "radius":25,
+             "blur":15,
+             "max":1.5,
+             "gradient":{0.1: 'blue', 0.2: 'lime', 0.3: 'yellow',1.0: 'red'}
+            // "gradient":{0.1: '00DFFC', 0.2: '00B4CC', 0.3: '008C9E',0.4: '005F6B',1.0: '343838'}
+             //  "gradient":{0.1: 'F00F00', 0.2: 'E00E00', 0.3: 'D00D00',0.4: 'C00C00',0.6: 'B00B00'}
+            //    "gradient":{0.1: 'FFE870', 0.2: 'FCB521', 0.3: 'F56F15',0.4: 'A21A00',0.6: '350504'}
+            }).addTo(map);
+
+      
+
+          // var hexLayer = L.hexbinLayer(geodata, { 
+          //                 style: hexbinStyle,
+          //               }).addTo(map);
+
+        //   // GEOJSON ADD
+        var storesLayer = L.geoJson(geodata, {
+
+          pointToLayer: function (feature, latlng) {
+                
+            var marker = L.circleMarker(latlng, geojsonMarkerOptions);
+
+            heat.addLatLng(latlng);
+            
+            return marker
+          },
+
+           //onEachFeature: onEachFeatureData
+        }).addTo(map);
+
+       
+    
+
+      });
+
+
+
+
+    </script>
+  </body>
+  </html>

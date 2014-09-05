@@ -1,0 +1,61 @@
+h1 {
+	font-family: 'Montserrat', sans-serif;
+	font-size: 20px;
+}
+
+.logo {
+	
+	width:auto;
+	color:white;
+}
+
+.navbar-default {
+	border:none;
+	background-color: #303030;
+}
+
+.container-fluid {
+	background-color: #303030;
+}
+
+.navbar {
+	margin-bottom:-5px;
+}
+
+.navbar-default .navbar-nav li a {
+	padding-top:10px;
+	padding-bottom:10px;
+	color:#999;
+}
+
+.navbar-default .navbar-nav li a:hover {
+	//font-weight: bold;
+	color:#777;
+}
+
+.navbar-default .navbar-nav .active a {
+	background-color: #303030;
+	color:#999;
+	font-weight: bold;
+}
+
+.navbar-default .navbar-nav .first a {
+	padding-left: 0px;
+}
+
+.navbar-default .navbar-nav .active a:hover {
+	background-color: #303030;
+	font-weight: bold;
+}
+
+.social {
+	padding-top: 10px;
+	padding-bottom: 10px;
+}
+
+@media screen and (max-width : 767px) {
+
+.navbar-default .navbar-nav .first a {
+	padding-left: 15px;
+}
+}

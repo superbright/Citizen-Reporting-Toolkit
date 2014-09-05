@@ -1,0 +1,246 @@
+@font-face {
+    font-family: 'BebasNeueRegular';
+    src: url('fonts/BebasNeue-webfont.eot');
+    src: url('fonts/BebasNeue-webfont.eot?#iefix') format('embedded-opentype'),
+         url('fonts/BebasNeue-webfont.woff') format('woff'),
+         url('fonts/BebasNeue-webfont.ttf') format('truetype'),
+         url('fonts/BebasNeue-webfont.svg#BebasNeueRegular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+/* CSS reset */
+body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,form,fieldset,input,textarea,p,blockquote,th,td { 
+	margin:0;
+	padding:0;
+}
+html,body {
+	margin:0;
+	padding:0;
+}
+table {
+	border-collapse:collapse;
+	border-spacing:0;
+}
+fieldset,img { 
+	border:0;
+}
+
+#formcuk { margin-top: 10px; height:100%;}
+
+input{
+	border:1px solid #b0b0b0;
+	padding:3px 5px 4px;
+	color:#979797;
+	width:75px;
+}
+address,caption,cite,code,dfn,th,var {
+	font-style:normal;
+	font-weight:normal;
+}
+ol,ul {
+	list-style:none;
+}
+caption,th {
+	text-align:left;
+}
+h1,h2,h3,h4,h5,h6 {
+	font-size:100%;
+	font-weight:normal;
+}
+q:before,q:after {
+	content:'';
+}
+abbr,acronym { border:0;
+}
+/* General Demo Style */
+body{
+	font-family:"HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+	background: #000;
+	font-weight: 400;
+	font-size: 15px;
+	color: #aa3e03;
+	overflow-y: scroll;
+	overflow-x: hidden;
+}
+.ie7 body{
+	overflow:hidden;
+}
+a{
+	color: #333;
+	text-decoration: none;
+}
+.container{
+	position: relative;
+	text-align: center;
+}
+.clr{
+	clear: both;
+}
+.container > header{
+	padding: 30px 30px 10px 20px;
+	margin: 0px 20px 10px 20px;
+	position: relative;
+	display: block;
+	text-shadow: 1px 1px 1px rgba(0,0,0,0.2);
+    text-align: left;
+}
+h1 {
+	font-weight: bold;
+    font-family: 'Montserrat', sans-serif;
+}
+.container > header h1{
+	font-family:"HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+	font-size: 35px;
+	line-height: 35px;
+	position: relative;
+	font-weight: bold !important;
+	color: #fff;
+	text-shadow: 1px 1px 1px rgba(0,0,0,0.3);
+    padding: 0px 0px 5px 0px;
+}
+.container > header h1 span{
+
+}
+.container > header h2, p.info{
+	font-size: 16px;
+	font-style: italic;
+	color: #f8f8f8;
+	text-shadow: 1px 1px 1px rgba(0,0,0,0.6);
+}
+
+#page-wrap {
+        width: 45%;
+        padding: 20px;
+        margin-top:14%;
+        margin-left:5%;
+        -moz-box-shadow: 0 0 5px black;
+        -webkit-box-shadow: 0 0 5px black;
+        box-shadow: 0 0 5px black;
+        background-color: rgba(0, 0, 0, 0.6);
+    }
+	#content {
+        font: 15px/2 Verdana;
+        margin: 0 0 30px 0;
+        text-align: left;
+        color: white;
+        line-height: 40px;
+    }
+
+.copy {
+	font-family: 'Verdana', 'Arial Narrow', Arial, sans-serif;
+	line-height: 18px;
+	margin-top: 5px;
+	margin-bottom: 10px;
+}
+
+#email {
+        width: 200px;
+        height:24px;
+        margin-left: 10px;
+        background-color: rgba(0, 0, 0, 0.6);
+        color:white;
+        vertical-align: bottom;
+        padding: 5px;
+    }
+
+   #submit {
+        border: none;    
+    	//border: 1px solid gray;
+        padding: 9px 0px !important;
+        font-size: 13px !important;
+        background-color: white;
+        font-weight: lighter;
+        color: #2d525d;
+        cursor: pointer;
+    }
+     #submit:hover {
+       
+        background-color: #ddd;
+        color: #2d525d;
+
+    }
+
+/* Media Queries */
+@media screen and (max-width: 940px) {
+	 
+	#email {
+        width: 200px;
+        height:24px;
+        margin-left: 0px;
+        margin-bottom: 10px;
+        background-color: rgba(0, 0, 0, 0.6);
+        color:white;
+        vertical-align: bottom;
+        font: 15px/2 Verdana;
+        padding: 5px;
+    }
+     #formcuk{
+    	text-align:center;
+    	width:200px;
+    	margin:0 auto;
+    }
+}
+
+
+@media screen and (min-width : 320px) and (max-width : 767px) {
+	.container > header{
+		text-align: center;
+	}
+	p.codrops-demos {
+		position: relative;
+		top: auto;
+		left: auto;
+	}
+	#page-wrap {
+        width: 80%;
+        padding: 20px;
+        margin-top:0;
+    }
+    #content {
+        font: 13px/2 Verdana;
+        margin: 0 0 30px 0;
+        text-align: left;
+        color: white;
+        line-height: 40px;
+    }
+
+.copy {
+	font-family: 'Verdana', 'Arial Narrow', Arial, sans-serif;
+	line-height: 18px;
+	margin-top: 5px;
+	margin-bottom: 10px;
+}
+
+#email {
+        width: 200px;
+        height:24px;
+        //margin-left: 10px;
+        background-color: rgba(0, 0, 0, 0.6);
+        color:white;
+        vertical-align: bottom;
+        padding: 5px;
+    }
+
+   #submit {
+        border: none;    
+    	//border: 1px solid gray;
+        padding: 9px 0px !important;
+        font-size: 13px !important;
+        background-color: white;
+        font-weight: lighter;
+        color: #2d525d;
+        cursor: pointer;
+    }
+
+    #formcuk{
+    	text-align:center;
+    	width:200px;
+    	margin:0 auto;
+    }
+}
+
+
+
+
+
+

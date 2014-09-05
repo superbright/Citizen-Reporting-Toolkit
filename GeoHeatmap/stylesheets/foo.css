@@ -1,0 +1,312 @@
+
+.listing {
+ 
+  border: 1px solid black;
+  margin: 5px;
+}
+
+.data {
+  background-color: red;
+  border: 1px solid #000;
+}
+
+/*.data a:hover {
+  background-color: black;
+}
+*/
+
+.veri {
+
+  background-color: white;
+  border: 2px solid gray;
+}
+
+
+a.work-archive-thumb-link img {
+
+  border: 1px solid black;
+  position: relative;
+
+}
+
+.edit {
+  float: right;
+  margin-top: 20px;
+
+}
+
+.image {
+  padding: 5px;
+  border: 1px solid black;
+  text-align: left;
+}
+
+.imagelabel {
+  width:50px;
+}
+
+
+.leaflet-popup-pane .leaflet-popup .leaflet-popup-content-wrapper {
+  background-color: #F7F9FE;
+  color: #000000;
+  border-radius: 0px;
+  width:380px;
+  font-size: 14px;
+  padding-left: 0px;
+  margin-left: 0px;
+}
+
+.leaflet-popup-content {
+  width: 370px !important;
+  margin: 5px;
+}
+
+.leaflet-popup-content img {
+/*  max-height: 150px;*/
+}
+
+.bootmap {
+  padding: 0px;
+  margin: 0px;
+
+}
+
+
+#map-block {
+
+  width: 100%;
+  height: 100%;
+  padding: 0px;
+  margin: 0px;
+  
+}
+
+.editmap {
+
+  width: 1200px;
+  height: 700px;
+  padding: 0px;
+  margin: 0px;
+  
+}
+
+
+
+.leaflet-container a {
+  color: #1a1a1a;
+  font-size: 15px;
+  /*text-decoration: underline;*/
+}
+.leaflet-container a:hover {
+ /* color: #FFDC00;*/
+  text-decoration: underline;
+}
+
+.popuph {
+  color: #000;
+  font-size: 13px;  
+/*  width: 30px;*/
+}
+
+.url {
+  text-align: right;
+  margin-top: 15px;
+  font-size: 13px;
+  margin-right: 5px;
+}
+
+.container-fluid {
+    margin: 0 auto;
+    height: 100%;
+    padding-right: 0px;
+
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+.list {
+  background-color: black;
+}
+
+.columndata {
+
+
+  height: 120px;
+  background-color: white;
+  box-shadow: 0 3px 7px rgba(0,0,0,0.75);
+  margin-bottom:10px;
+
+
+ /* border-bottom: 1px solid #333;*/
+}
+
+.columndata:hover {
+/*  background-color: #AAAAAA;*/
+  /*border: 1px solid black;*/
+}
+
+
+.columndata img {
+  width: 90px;
+  height: 90px;
+  margin-left: -10px;
+}
+
+
+.tweetheader {
+  background-color: #BED2D9;
+  color: #333;
+  margin: 0px;
+  padding: 0px;
+  overflow-y: hidden; overflow-x:hidden;
+}
+
+
+.columndata:hover .tweetheader {
+  background-color: #38aadd;
+
+}
+
+.columndata:hover .tweet {
+
+  margin-left: 10px;
+   -moz-transition: all 0.3s ease-out;  /* FF4+ */
+    -o-transition: all 0.3s ease-out;  /* Opera 10.5+ */
+    -webkit-transition: all 0.3s ease-out;  /* Saf3.2+, Chrome */
+    -ms-transition: all 0.3s ease-out;  /* IE10 */
+    transition: all 0.3s ease-out;  
+}
+
+.columndata .tweet {
+
+  margin-left: -8px;
+   -moz-transition: all 0.3s ease-out;  /* FF4+ */
+    -o-transition: all 0.3s ease-out;  /* Opera 10.5+ */
+    -webkit-transition: all 0.3s ease-out;  /* Saf3.2+, Chrome */
+    -ms-transition: all 0.3s ease-out;  /* IE10 */
+    transition: all 0.3s ease-out;  
+
+      font-family: "Verdana";
+      font-size: 10px;
+}
+
+
+
+
+/*.columndata:hover .tweet {
+
+  color: white;
+}
+.columndata:hover .adress {
+
+  color: white;
+}
+.columndata:hover .tarih {
+
+  color: white;
+  font-size: 10px;
+}*/
+
+.tweet {
+  font-size: 12px;
+  margin-top: 10px;
+}
+
+.adress {
+  font-size: 11px;
+  margin-top: 2px;
+}
+
+.tarih {
+  text-align: left;
+    font-size: 10px;
+}
+
+/*.count {
+  font-size: 13px;
+  background-color: #FF4136;
+  border-bottom: 1px solid #001F3F;
+  border-right: 1px solid #001F3F;
+  margin-bottom: 10px;
+  width: 30px;
+  height: 30px;
+}*/
+
+.editpage {
+  margin-top: 150px;
+}
+.editpageehir {
+  margin-top: 200px;
+}
+
+.container-fluid {
+  margin-top: 0px;
+  background-color: #111111;
+}
+body {
+   background-color: #303030;
+}
+
+.left .row {
+  overflow-y: scroll; overflow-x:hidden;
+  margin: 0px;
+}
+
+.homenavbar {
+
+  background-color: #303030;
+
+  border-bottom: 0px solid #000;
+  -moz-box-shadow:    3px 3px 3px 3px #666;
+  -webkit-box-shadow: 3px 3px 3px 3px #666;
+  box-shadow:         3px 3px 3px 3px #666;
+}
+
+.logo {
+  color: #999;
+}
+
+.taglayer {
+
+  font-size: 10px;
+  padding-top: 5px;
+
+}
+.header {
+  color: #DDDDDD;
+  padding: 0px;
+  padding-left: 10px;
+}
+
+.taglayer a {
+  
+  font-size: 11px;
+  color: blue;
+  font-style: underline;
+  margin: 0px;
+
+}
+
+#sidebar {
+  /* background-color: #DDDDDD;*/
+}
+
+.leaflet-control-layers-toggle:after{ 
+    content:"Veriler"; 
+    color:#333 ;
+}
+.leaflet-control-layers-toggle{ 
+    width:auto;
+    background-position:3px 50% ;
+    padding:3px;
+    padding-left:36px;
+    text-decoration:bold;
+    line-height:36px;
+
+}
+form {
+  margin-left: -100px;
+}
+
+
